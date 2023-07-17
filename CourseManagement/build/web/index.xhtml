@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Home</title>
+    </h:head>
+    <h:body>
+        
+        <br />
+  <!--      <h:link outcome="welcomePrimefaces" value="Primefaces welcome page" /><br/>
+        <h:link outcome="addCourse" value="Add Course" /><br/>  -->
+        
+        <ui:composition template="/templates/template.xhtml">
+            <ui:define name="content">
+                <f:view>
+                    <h2>Home</h2>
+                    <h:form>
+                        <p:link outcome="main" value="Show All Course" />
+                    </h:form>
+                </f:view>
+
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

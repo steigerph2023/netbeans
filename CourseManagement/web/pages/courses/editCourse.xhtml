@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Course View</title>
+    </h:head>
+    <h:body>
+
+        <ui:composition template="/templates/template.xhtml">
+            <ui:define name="content">
+                <h2><h:outputLabel value="Course View"/></h2>
+                <f:view>
+                    <h:form>
+                        <p:growl id="msg"/>
+                        <p:panel>
+
+                            <h:panelGrid columns="8" cellspacing="5">
+                                <h:outputText value="ID: "/>
+                                <p:inputText value="#{editCourse.courseID}" size="20" disabled="true"/>
+                                <h:outputText value="Course Code:"/>
+                                <p:inputText value="#{editCourse.courseCode}" size="10" disabled="true"/>
+                                <h:outputText value="Course Title:"/>
+                                <p:inputText value="#{editCourse.courseTitle}" size="50" required="true"/>
+                                <h:outputText value="Program Code:"/>
+                                <p:inputText value="#{editCourse.programCode}" size="10" required="true"/>
+                            </h:panelGrid >
+                            <h:panelGrid columns="10" cellspacing="5">
+                                <h:outputText value="Year:"/>
+                                <p:selectOneMenu id="year" value="#{editCourse.year}" required="true">
+                                    <f:selectItem itemValue="First Year" itemLabel="First Year"/>
+                                    <f:selectItem itemValue="Second Year" itemLabel="Second Year"/>
+                                    <f:selectItem itemValue="Third Year" itemLabel="Third Year"/>
+                                    <f:selectItem itemValue="Forth Year" itemLabel="Forth Year"/>
+                                </p:selectOneMenu>
+                                <h:outputText value="Semester:"/>
+                                <p:selectOneMenu id="semester" value="#{editCourse.semester}" required="true">
+                                    <f:selectItem itemValue="First" itemLabel="First"/>
+                                    <f:selectItem itemValue="Second" itemLabel="Second"/>
+                                    <f:selectItem itemValue="Third" itemLabel="Third"/>
+
+                                </p:selectOneMenu>
+                                <h:outputText value="Units"/>
+                                <p:inputText value="#{editCourse.units}" size="3" required="true">
+                                    <f:convertNumber/>
+                                </p:inputText>
+                                <h:outputText value="Lecture Hours"/>
+                                <p:inputText value="#{editCourse.lecHours}" size="3" required="true">
+                                    <f:convertNumber pattern="00.00"/>
+                                </p:inputText>
+                                <h:outputText value="Lab Hours"/>
+                                <p:inputText value="#{editCourse.labHours}" size="3" required="true">
+                                    <f:convertNumber pattern="00.00"/>
+                                </p:inputText>
+                            </h:panelGrid>
+                            <h:panelGrid columns="4">
+                                <p:commandButton action="#{course.updateCourse(editCourse)}" value="Update" update="msg"/>
+                                <p:commandButton action="#{course.removeCourse(editCourse.courseCode)}" value="Remove"/>
+                                <p:link outcome="main" value="Return to Main"/>
+                            </h:panelGrid>
+                            
+                        </p:panel>
+                        <!--          <h:outputText value="ID: "/>
+                                  <p:inputText value="#{editCourse.courseID}" disabled="true"/>-->
+                    </h:form>
+                </f:view>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
+

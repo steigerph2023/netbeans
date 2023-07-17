@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scene Scope="Project" version="2">
+    <Scope Scope="Faces Configuration Only"/>
+    <Scope Scope="Project">
+        <Node id="pages/courses/addCourse.xhtml" x="150" y="150" zoom="true"/>
+        <Node id="pages/courses/showAllCourse.xhtml" x="496" y="383" zoom="true"/>
+        <Node id="templates/common.xhtml" x="400" y="150" zoom="true"/>
+        <Node id="index.xhtml" x="53" y="689" zoom="true"/>
+        <Node id="welcomePrimefaces.xhtml" x="718" y="91" zoom="true"/>
+        <Node id="pages/mainPage.xhtml" x="439" y="637" zoom="true"/>
+        <Node id="pages/courses/editCourse.xhtml" x="942" y="409" zoom="true"/>
+        <Node id="templates/template.xhtml" x="164" y="466" zoom="true"/>
+    </Scope>
+    <Scope Scope="All Faces Configurations"/>
+</Scene>

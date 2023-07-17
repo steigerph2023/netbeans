@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Course</title>
+    </h:head>
+    <h:body>
+        
+        <center>
+            <ui:composition template="/templates/template.xhtml">
+            <ui:define name="content">
+                <h2><h:outputLabel value="Course Adding"/></h2>
+                <f:view>
+            <h:form>
+                <p:growl id="msg"/>
+                <p:panel>
+                    <h:panelGrid columns="6" cellspacing="5">
+                        <h:outputText value="Course Code:"/>
+                        <p:inputText value="#{course.courseCode}" size="10" required="true"/>
+                        <h:outputText value="Course Title:"/>
+                        <p:inputText value="#{course.courseTitle}" size="50" required="true"/>
+                        <h:outputText value="Program Code:"/>
+                        <p:inputText value="#{course.programCode}" size="10" required="true"/>
+                    </h:panelGrid >
+                    <h:panelGrid columns="10" cellspacing="5">
+                        <h:outputText value="Year:"/>
+                        <p:selectOneMenu id="year" value="#{course.year}" required="true">
+                            <f:selectItem itemValue="First Year" itemLabel="First Year"/>
+                            <f:selectItem itemValue="Second Year" itemLabel="Second Year"/>
+                            <f:selectItem itemValue="Third Year" itemLabel="Third Year"/>
+                            <f:selectItem itemValue="Forth Year" itemLabel="Forth Year"/>
+                        </p:selectOneMenu>
+                        <h:outputText value="Semester:"/>
+                        <p:selectOneMenu id="semester" value="#{course.semester}" required="true">
+                            <f:selectItem itemValue="First" itemLabel="First"/>
+                            <f:selectItem itemValue="Second" itemLabel="Second"/>
+                            <f:selectItem itemValue="Third" itemLabel="Third"/>
+
+                        </p:selectOneMenu>
+                        <h:outputText value="Units"/>
+                        <p:inputText value="#{course.units}" size="3" required="true">
+                            <f:convertNumber/>
+                        </p:inputText>
+                        <h:outputText value="Lecture Hours"/>
+                        <p:inputText value="#{course.lecHours}" size="3" required="true">
+                            <f:convertNumber pattern="00.00"/>
+                        </p:inputText>
+                        <h:outputText value="Lab Hours"/>
+                        <p:inputText value="#{course.labHours}" size="3" required="true">
+                            <f:convertNumber pattern="00.00"/>
+                        </p:inputText>
+                    </h:panelGrid>
+                    <h:panelGrid columns="2">
+                        <p:commandButton action="#{course.addCourse(course)}" value="Save" update="msg"/>
+                        <p:link outcome="main" value="Return to Main"/>
+                    </h:panelGrid>
+                </p:panel>
+            </h:form>
+        </f:view>
+                
+            </ui:define>
+        </ui:composition>
+            
+        </center>
+        
+
+    </h:body>
+</html>
+
